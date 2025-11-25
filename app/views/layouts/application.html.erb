@@ -10,7 +10,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+    <body>
+  <%= link_to "Skip to main content", "#main-content", class: "visually-hidden-focusable" %>
+  <header>
+    <%= render "shared/navbar" %> <!-- 👈 Add this for navbar -->
+  </header>
+
+  <main id="main-content">
     <%= yield %>
-  </body>
+  </main>
+    <%= render "shared/flashes" %>
+</body>
 </html>
