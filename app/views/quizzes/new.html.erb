@@ -1,0 +1,6 @@
+<%= simple_form_for @quiz do |f| %>
+  <%= f.input :theme %>
+  <%= f.input :level, :collection => %w[easy medium hard] %>
+  <%= f.input :number_of_questions, :collection => (1..10) %>
+  <%= f.submit %>
+<% end %>
