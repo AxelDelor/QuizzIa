@@ -1,12 +1,12 @@
 <h1>Quizzes</h1>
 
-<ul>
+<ul data-controller="answer" >
 <% Question.where(quiz_id: @quiz.id).each do |q| %>
   <li><%= q.question_content %></li>
   <%= simple_form_for q do |f| %>
   <%= f.input :user_answer, label_html: { class: "sr-only" } %>
-  <%= f.submit "Go!", class: "btn btn-primary mb-4" %>
+  <%= f.submit "Go!", class: "btn btn-primary mb-4", data: { answer_target: "button", action:"click->answer#reveal" } %>
   <% end %>
-
+ <div class="d-none card p-2" data-answer-target="textia"><%= q.answer_content %></div>
 <% end %>
 </ul>
