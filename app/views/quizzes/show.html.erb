@@ -1,0 +1,4 @@
+<h1>Quizzes</h1>
+<% Question.where(quiz_id: @quiz.id).each do |q| %>
+  <%= q.question_content %>
+<% end %>
