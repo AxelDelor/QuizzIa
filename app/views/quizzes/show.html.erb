@@ -1,4 +1,12 @@
 <h1>Quizzes</h1>
+
+<ul>
 <% Question.where(quiz_id: @quiz.id).each do |q| %>
-  <%= q.question_content %>
+  <li><%= q.question_content %></li>
+  <%= simple_form_for q do |f| %>
+  <%= f.input :user_answer, label_html: { class: "sr-only" } %>
+  <%= f.submit "Go!", class: "btn btn-primary mb-4" %>
+  <% end %>
+
 <% end %>
+</ul>
