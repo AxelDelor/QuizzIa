@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   reveal(event) {
-    event.preventDefault()
+    // event.preventDefault()
     event.target.classList.add("d-none")
     this.textiaTargets[this.buttonTargets.indexOf(event.target)].classList.remove("d-none")
   }
