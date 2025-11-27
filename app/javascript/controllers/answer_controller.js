@@ -10,7 +10,6 @@ export default class extends Controller {
 
   reveal(event) {
     event.preventDefault()
-    console.log(this.buttonTargets.indexOf(event.target));
     event.target.classList.add("d-none")
     this.textiaTargets[this.buttonTargets.indexOf(event.target)].classList.remove("d-none")
   }
