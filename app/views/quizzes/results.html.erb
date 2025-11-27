@@ -1,0 +1,39 @@
+<div class="p-3 m-3 bg-light">
+    <h2>Your quiz on "<%= @quiz.theme %>"</h1>
+    <div class="small text-body-tertiary text-uppercase">Difficulty: <%= @quiz.level %>, <%= @quiz.number_of_questions %> questions</div>
+    <% global_score = 0 %>
+</div>
+<div class="p-3 m-3 bg-light">
+    <% Question.where(quiz_id: @quiz.id).each_with_index do |item, index| %>
+    <div class="d-flex flex-start mb-3 align-items-center justify-content-between">
+    <div>
+        <div><%= index+1 %>: <span class="fw-bold">"<%= item.question_content %>"</span></div>
+        <div class="small">You said: "<%= item.user_answer %>"</div>
+        <div class="small">Correct answer: "<%= item.answer_content %>"</div>
+    </div>
+    <div class= "
+     <%= "bg-success" if item.question_score >= 70 %>
+     <%= "bg-warning" if item.question_score >= 40 && item.question_score < 70  %>
+     <%= "bg-danger" if item.question_score < 40  %>
+    mx-3 p-3 rounded-circle d-flex justify-content-center align-items-center text-white score-display">
+        <div><%= item.question_score %>%</div>
+        </div>
+    <% global_score += item.question_score %>
+    </div>
+    <% end  %>
+    <% average_score = global_score/@quiz.number_of_questions %>
+    <div class="d-flex align-items-center">
+    <div class="flex-grow-1 fs-3">Overall score:</div> 
+    <div class="
+    <%= "bg-success" if average_score >= 70 %>
+     <%= "bg-warning" if average_score >= 40 && average_score < 70  %>
+     <%= "bg-danger" if average_score < 40  %>
+    bg-gradient mx-3 p-3 rounded-circle d-flex justify-content-center align-items-center text-white score-display fw-bold"> 
+        <%= average_score %>%
+    </div>
+    </div>
+</div>
+<div class="p-3 m-3 bg-light">
+    <h2>Feedback</h2>
+    <div class="fst-italic">"<%= @quiz.feedback %>"</div>
+</div>s

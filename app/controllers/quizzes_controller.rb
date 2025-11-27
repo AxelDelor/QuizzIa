@@ -28,6 +28,10 @@ class QuizzesController < ApplicationController
     redirect_to quiz_path(@quiz)
   end
 
+  def results
+    @quiz = Quiz.find(params[:id])
+  end
+
   private
 
   def quiz_params
