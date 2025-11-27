@@ -4,4 +4,3 @@
   <%= f.input :number_of_questions, :collection => (1..10) %>
   <%= f.submit %>
 <% end %>
-<%= @response == nil ? "waiting for questions" : @response.content %>
