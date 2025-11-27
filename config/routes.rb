@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :questions, only: [:edit, :update]
 
+  get "quizzes/:id/results", to: "quizzes#results", as: :quiz_results
 end
+ 
