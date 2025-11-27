@@ -4,7 +4,6 @@
     <%= f.submit "Go!", class: "btn btn-primary mb-4", data: { answer_target: "button", action:"click->answer#reveal" } %>
     <% end %>
   <div class="d-none card p-2 mb-4" data-answer-target="textia"><%= @question.answer_content %></div>
-  <%= link_to "Next", next_quiz_path(@quiz), data: { turbo_method: :get } %>
 
 
 <%#

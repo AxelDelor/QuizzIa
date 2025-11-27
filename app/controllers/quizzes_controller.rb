@@ -7,7 +7,12 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
-    @question = @quiz.questions.first
+    if params[:current_question]
+      @next_question = @quiz.questions.where("id > ?", params[:current_question]).first
+      @question = @next_question
+    else
+      @question = @quiz.questions.first
+    end
   end
 
   def create
@@ -27,27 +32,6 @@ class QuizzesController < ApplicationController
       Question.create(question_content: question, answer_content: reponse, quiz_id: @quiz.id)
     end
     redirect_to quiz_path(@quiz)
-  end
-
-  def next
-    @question = Question.find(params[:id])
-    @quiz = @question.quiz
-
-    @next_question = @quiz.questions.where("id > ?", @question.id).first
-
-    if @next_question.nil?
-      # No more questions → redirect to quiz summary or end page
-      redirect_to quiz_path(@quiz)
-      return
-    else
-      respond_to do |format|
-      #   format.turbo_stream   # renders questions/next.turbo_stream.erb
-      #   format.html { redirect_to quiz_path(@quiz) }
-      # end
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("question", partial: "questions/card", locals: { question: @next_question }) }
-        format.html { render "quizzes/show" }
-      end
-    end
   end
 
   private

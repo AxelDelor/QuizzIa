@@ -1,5 +1,13 @@
 <h1>Quizzes</h1>
 
-<div data-controller="answer" id="question">
-<%= render "questions/card", question: @question %>
+<div data-controller="answer" id="">
+<%= turbo_frame_tag "question" do %>
+  <%= render "questions/card", question: @question %>
+<% end %>
 </div>
+
+<% if @quiz.questions.last == @question %>
+  <p>result</p>
+<% else %>
+  <%= link_to "Next", quiz_path(@quiz, current_question: @question.id) %>
+<% end %>
