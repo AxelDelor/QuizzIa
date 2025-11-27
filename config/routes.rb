@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get "profile", to: "pages#profile"
   resources :quizzes, only: [:new, :create, :show] do
     member do
       get :next
