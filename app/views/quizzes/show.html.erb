@@ -7,7 +7,7 @@
 </div>
 
 <% if @quiz.questions.last == @question %>
-  <p>result</p>
+  <%= link_to "Results", quiz_results_path(@quiz) %>
 <% else %>
   <%= link_to "Next", quiz_path(@quiz, current_question: @question.id) %>
 <% end %>
