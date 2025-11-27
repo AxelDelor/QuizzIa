@@ -1,0 +1,11 @@
+ <h3><%= @question.question_content %></h3>
+    <%= simple_form_for @question do |f| %>
+    <%= f.input :user_answer, label_html: { class: "sr-only" } %>
+    <%= f.submit "Go!", class: "btn btn-primary mb-4", data: { answer_target: "button", action:"click->answer#reveal" } %>
+    <% end %>
+  <div class="d-none card p-2 mb-4" data-answer-target="textia"><%= @question.answer_content %></div>
+  <%= link_to "Next", next_quiz_path(@quiz), data: { turbo_method: :get } %>
+
+
+<%#
+<%= link_to "Next", @question.next %>
