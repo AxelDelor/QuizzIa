@@ -4,17 +4,18 @@
   <ul class="list-group w-50">
 
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <%= link_to "Vache", "", class: "text-decoration-none fw-bold" %>
+      <%= link_to "Vache", quiz_results_path(@quiz), class: "text-decoration-none fw-bold" %> 
+       
       <span class="badge bg-light text-dark rounded-pill border">79 / 100</span>
     </li>
 
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <%= link_to "Sport", "#", class: "text-decoration-none fw-bold" %>
+      <%= link_to "Sport", quiz_results_path(@quiz), class: "text-decoration-none fw-bold" %>
       <span class="badge bg-light text-dark rounded-pill border">95 / 100</span>
     </li>
 
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      <%= link_to "Animals", "#", class: "text-decoration-none fw-bold" %>
+      <%= link_to "Animals", quiz_results_path(@quiz), class: "text-decoration-none fw-bold" %>
       <span class="badge bg-light text-dark rounded-pill border">55 / 100</span>
     </li>
 
