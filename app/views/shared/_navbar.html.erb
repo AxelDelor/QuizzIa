@@ -6,8 +6,8 @@
 
     <% if user_signed_in? %>
       <div class="d-flex align-items-center">
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        <%= link_to profile_path, class:"avatar ms-2" do  %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item my-logout" %>
+        <%= link_to profile_path, class:"avatar ms-2" do %>
           <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", class: "avatar", alt: "dropdown menu" %>
         <% end %>
 
