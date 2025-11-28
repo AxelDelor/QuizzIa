@@ -13,4 +13,3 @@ Rails.application.routes.draw do
 
   get "quizzes/:id/results", to: "quizzes#results", as: :quiz_results
 end
- 

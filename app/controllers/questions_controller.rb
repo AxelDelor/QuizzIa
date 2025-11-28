@@ -16,22 +16,14 @@ class QuestionsController < ApplicationController
     else
       render :edit
     end
+    if @quiz.questions.last == @question
+      @quiz.set_feedback
+    end
   end
 
-  # def next
-  #   respond_to do |format|
-  #   format.turbo_stream # renders `app/views/messages/create.turbo_stream.erb`
-  #   format.html { redirect_to quiz_path(@quiz) }
-  #   end
-  # end
 
-    # def validation
-    #   chat = RubyLLM.chat
-    #   @response = chat.ask("")
-    #   @quiz_content = JSON.parse(@response.content)
-    # end
 
-  
+
 
   private
 
