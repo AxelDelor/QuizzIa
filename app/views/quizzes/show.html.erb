@@ -1,13 +1,13 @@
-<h1>Quizzes</h1>
+<div class="container py-4">
+  <div data-controller="answer" id="">
+  <%= turbo_frame_tag "question" do %>
+    <%= render "questions/card", question: @question %>
+  <% end %>
+  </div>
 
-<div data-controller="answer" id="">
-<%= turbo_frame_tag "question" do %>
-  <%= render "questions/card", question: @question %>
-<% end %>
+  <% if @quiz.questions.last == @question %>
+    <%= link_to "Results", quiz_results_path(@quiz) %>
+  <% else %>
+    <%= link_to "Next", quiz_path(@quiz, current_question: @question.id) %>
+  <% end %>
 </div>
-
-<% if @quiz.questions.last == @question %>
-  <%= link_to "Results", quiz_results_path(@quiz) %>
-<% else %>
-  <%= link_to "Next", quiz_path(@quiz, current_question: @question.id) %>
-<% end %>
