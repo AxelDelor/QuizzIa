@@ -38,6 +38,21 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
   end
 
+  def update
+    @quiz = Quiz.find(params[:id])
+    if @quiz.update(quiz_params)
+      # redirect_to @quiz # or wherever
+    else
+      render :edit
+    end
+    
+    if @quiz.update(quiz_params)
+      # redirect_to @quiz # or wherever
+    else
+      render :edit
+    end
+  end
+
   private
 
   def quiz_params

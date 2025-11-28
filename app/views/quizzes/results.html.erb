@@ -23,12 +23,12 @@
     <% end  %>
     <% average_score = global_score/@quiz.number_of_questions %>
     <div class="d-flex align-items-center">
-    <div class="flex-grow-1 fs-3">Overall score:</div> 
+    <div class="flex-grow-1 fs-3">Overall score:</div>
     <div class="
     <%= "bg-success" if average_score >= 70 %>
      <%= "bg-warning" if average_score >= 40 && average_score < 70  %>
      <%= "bg-danger" if average_score < 40  %>
-    bg-gradient mx-3 p-3 rounded-circle d-flex justify-content-center align-items-center text-white score-display fw-bold"> 
+    bg-gradient mx-3 p-3 rounded-circle d-flex justify-content-center align-items-center text-white score-display fw-bold">
         <%= average_score %>%
     </div>
     </div>
@@ -36,4 +36,4 @@
 <div class="p-3 m-3 bg-light">
     <h2>Feedback</h2>
     <div class="fst-italic">"<%= @quiz.feedback %>"</div>
-</div>s
+</div>
